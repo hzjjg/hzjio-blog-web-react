@@ -1,6 +1,7 @@
 import * as React from 'react';
-import './App.css';
-import logo from './logo.svg';
+import logo from '../../assets/logo.svg';
+import './App.scss';
+// import {BrowserRouter} from 'react-router-dom';
 
 class App extends React.Component {
   public render() {
