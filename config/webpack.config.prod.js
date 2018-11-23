@@ -115,7 +115,7 @@ module.exports = {
       // please link the files into your node_modules/ and let module-resolution kick in.
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
-      new TsconfigPathsPlugin({ configFile: paths.appTsConfig }),
+      new TsconfigPathsPlugin({ configFile: paths.appTsProdConfig }),
     ],
   },
   module: {
@@ -164,7 +164,7 @@ module.exports = {
                 options: {
                   // disable type checker - we will use it in fork plugin
                   transpileOnly: true,
-                  configFile: paths.appTsProdConfig
+                  configFile: paths.appTsProdConfig,
                 },
               },
             ],
@@ -222,7 +222,7 @@ module.exports = {
                       },
                     },
                     {
-                      loader: require.resolve('sass-loader')
+                      loader:require.resolve('sass-loader')
                     }
                   ],
                 },
@@ -299,6 +299,9 @@ module.exports = {
           // Pending further investigation:
           // https://github.com/mishoo/UglifyJS2/issues/2011
           comparisons: false,
+          // Don't inline functions with arguments, to avoid name collisions:
+          // https://github.com/mishoo/UglifyJS2/issues/2842
+          inline: 1,
         },
         mangle: {
           safari10: true,
@@ -317,7 +320,7 @@ module.exports = {
       // Enable file caching
       cache: true,
       sourceMap: shouldUseSourceMap,
-    }),    // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
+    }), // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
     new ExtractTextPlugin({
       filename: cssFilename,
     }),
