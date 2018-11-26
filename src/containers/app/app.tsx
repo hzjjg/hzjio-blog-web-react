@@ -34,8 +34,10 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    console.log('hahahah');
-    
+    this.showRecentArticle();
+  }
+
+  showRecentArticle(){
     ArticleApi.getList().then(articles => {
       this.recentArticles = articles;
     }).catch(error => {
