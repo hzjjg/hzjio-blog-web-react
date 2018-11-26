@@ -5,7 +5,7 @@ export interface ArticleEntity {
 
     author: number;
     
-    title: number;
+    title: string;
     
     summary: string;
     

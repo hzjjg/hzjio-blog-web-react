@@ -1,6 +1,7 @@
 import { ApiDomain } from "src/const";
 import { PageQuery } from "src/const/types";
 import { ArticleEntity } from "src/models/article.entity";
+import { Http } from "src/common/http";
 
 const ApiUrl = `${ApiDomain}/article`
 
@@ -10,7 +11,7 @@ const ApiUrl = `${ApiDomain}/article`
 export class ArticleApi{
 
     /** 获取文章列表 */
-    static getList(query:PageQuery):Promise<ArticleEntity[]>{
+    static getList(query?:PageQuery):Promise<ArticleEntity[]>{
         return Http.get(ApiUrl,query);
     }
 

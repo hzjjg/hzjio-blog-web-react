@@ -1,4 +1,4 @@
-import { AppConfig } from "config/app.config";
+import { Config } from "../app_config";
 
 /** api 域名 */
-export const ApiDomain = AppConfig.ApiDomain;
+export const ApiDomain = Config.ApiDomain;
