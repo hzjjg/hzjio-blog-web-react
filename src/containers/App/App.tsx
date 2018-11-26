@@ -1,22 +1,25 @@
 import * as React from 'react';
-import logo from '../../assets/logo.svg';
-import './App.scss';
-// import {BrowserRouter} from 'react-router-dom';
+import './app.scss';
+import Header from 'src/componets/header/header'
+import Footer from 'src/componets/footer/footer';
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx </code> and save to reload.
-        </p>
+      <div className="app">
+
+        <Header />
+
+        <div className="app-content">
+          haha
+        </div>
+        
+        <Footer />
+        
       </div>
+
     );
   }
 }
 
-export default App;
+export default App
