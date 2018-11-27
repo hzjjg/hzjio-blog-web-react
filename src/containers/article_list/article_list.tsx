@@ -7,6 +7,7 @@ class ArticleList extends React.Component {
         return (
             <div className="ArticleList">
                 <Header/>
+                article list
                 <Footer/>
             </div>
         )

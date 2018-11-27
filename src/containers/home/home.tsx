@@ -48,6 +48,7 @@ class Home extends React.Component<any, HomeState> {
   }
 
   showRecentArticle() {
+    // TODO 从store 中取数据
     ArticleApi.getList().then(articles => {
       this.setState({
         recentArticles: articles

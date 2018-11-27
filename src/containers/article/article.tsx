@@ -7,6 +7,7 @@ class Article extends React.Component {
         return (
             <div className="Article">
                 <Header />
+                article
                 <Footer />
             </div>
         )
