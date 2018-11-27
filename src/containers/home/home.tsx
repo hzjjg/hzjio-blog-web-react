@@ -1,12 +1,12 @@
 import * as React from 'react';
-import './app.scss';
+import './home.scss';
 import Header from 'src/componets/header/header'
 import Footer from 'src/componets/footer/footer';
 import { ArticleEntity } from 'src/models/article.entity';
 import { HomeArticleItem } from './article_item/article_item';
 import { ArticleApi } from 'src/apis/article.api';
 
-class App extends React.Component<any, AppState> {
+class Home extends React.Component<any, HomeState> {
 
   constructor(props: any) {
     super(props);
@@ -17,15 +17,20 @@ class App extends React.Component<any, AppState> {
 
   public render() {
     return (
-      <div className="app">
+      <div className="home">
 
         <Header />
 
-        <div className="app-content">
-          <div className="app-articles">
+        <div className="home-content">
+          <div className="home-articles">
             {
-              this.state.recentArticles.map((article,index) => 
-                <HomeArticleItem key={index} title={article.title} summary={article.summary} />
+              this.state.recentArticles.map((article, index) =>
+                <HomeArticleItem
+                  key={index}
+                  title={article.title}
+                  summary={article.summary}
+                  id={article.id}
+                />
               )
             }
           </div>
@@ -56,8 +61,8 @@ class App extends React.Component<any, AppState> {
 
 }
 
-interface AppState {
+interface HomeState {
   recentArticles: ArticleEntity[]
 }
 
-export default App
+export default Home

@@ -8,26 +8,29 @@ const ApiUrl = `${ApiDomain}/article`
 /**
  * 文章api
  */
-export class ArticleApi{
+export class ArticleApi {
 
-    /** 获取文章列表 */
-    static getList(query?:PageQuery):Promise<ArticleEntity[]>{
-        return Http.get(ApiUrl,query);
+    /**
+     * 获取文章列表 
+     * @param query 查询参数
+     */
+    static getList(query?: PageQuery): Promise<ArticleEntity[]> {
+        return Http.get(ApiUrl, query);
     }
 
-    static findOne(id:string):Promise<ArticleEntity>{
+    static findOne(id: string): Promise<ArticleEntity> {
         return Http.get(`${ApiUrl}/${id}`);
     }
 
-    static create(article:ArticleEntity){
-        return Http.post(ApiUrl,article);
+    static create(article: ArticleEntity) {
+        return Http.post(ApiUrl, article);
     }
 
-    static update(id:string,article:ArticleEntity){
-        return Http.put(`${ApiUrl}/${id}`,article);
+    static update(id: string, article: ArticleEntity) {
+        return Http.put(`${ApiUrl}/${id}`, article);
     }
 
-    static remove(id:string){
+    static remove(id: string) {
         return Http.delete(`${ApiUrl}/${id}`)
     }
 }

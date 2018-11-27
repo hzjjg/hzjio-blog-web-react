@@ -1,8 +1,11 @@
+@import '../../scss/common/variables.scss';
 
-.app{
+.home{
 
   &-content{
     min-height: 900px; 
+    width: $content-width;
+    margin: 0 auto;
   }
 
   &-articles{

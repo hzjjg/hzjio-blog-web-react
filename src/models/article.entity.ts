@@ -1,7 +1,7 @@
 /** 文章实体 */
 export interface ArticleEntity {
     
-    id: number;
+    id: string;
 
     author: number;
     

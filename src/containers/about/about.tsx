@@ -2,10 +2,10 @@ import * as React from "react";
 import Header from 'src/componets/header/header';
 import Footer from 'src/componets/footer/footer';
 
-class ArticleList extends React.Component {
+class About extends React.Component {
     public render() {
         return (
-            <div className="ArticleList">
+            <div className="About">
                 <Header/>
                 <Footer/>
             </div>
@@ -13,4 +13,4 @@ class ArticleList extends React.Component {
     }
 }
 
-export default ArticleList;
+export default About;
