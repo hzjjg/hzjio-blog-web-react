@@ -75,17 +75,17 @@ export class Http {
 
             switch (response.status) {
                 case 200: {
-                    return response.body;
+                    return response.json();
                 }
 
                 // 未登陆
                 case 404: {
                     // TODO 跳转登陆
-                    throw response.body;
+                    throw response.json();
                 }
 
                 default: {
-                    return response.body;
+                    return response.json();
                 }
             }
 

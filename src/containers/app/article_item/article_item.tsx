@@ -1,26 +1,24 @@
-import  * as React from "react";
+import * as React from "react";
+import './article_item.scss';
 
 export class HomeArticleItem extends React.Component<HomeArticleItemProps> {
 
-    constructor(props:HomeArticleItemProps){
+    constructor(props: HomeArticleItemProps) {
         super(props);
-
-        console.log(this.props);
-
     }
 
-    public render(){
-        return(
-            <div className="homeArticle">
+    public render() {
+        return (
+            <a href="javascript:;" className="homeArticle">
                 <div className="homeArticle-title">{this.props.title}</div>
                 <div className="homeArticle-summary">{this.props.summary}</div>
-            </div>
+            </a>
         );
     }
 
 }
 
 interface HomeArticleItemProps {
-    title:string;
-    summary:string;
+    title: string;
+    summary: string;
 }
