@@ -1,5 +1,9 @@
 @import './scss/common/index.scss';
 
+html{
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;

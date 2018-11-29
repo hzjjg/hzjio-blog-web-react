@@ -1,0 +1,13 @@
+@import './simple_mde.scss';
+
+.CodeMirror, .CodeMirror-scroll {
+	min-height: 500px;
+}
+.editor{
+    
+    &-content{
+        padding-top: 30px;
+        width: 1280px;
+        margin: 0 auto;
+    }
+}
