@@ -9,7 +9,7 @@ export class Http {
      * @param params 
      */
     static get(url: string, params?: any) {
-        return this.fetch(url, HttpMethods.get, params || null)
+        return this.fetch(url, HttpMethods.get, params || null);
     }
 
 
@@ -19,7 +19,7 @@ export class Http {
      * @param data 
      */
     static post(url: string, data: any) {
-        return this.fetch(url, HttpMethods.post, data)
+        return this.fetch(url, HttpMethods.post, data);
     }
 
     /**
@@ -28,7 +28,7 @@ export class Http {
      * @param data 
      */
     static put(url: string, data: any) {
-        return this.fetch(url, HttpMethods.put, data)
+        return this.fetch(url, HttpMethods.put, data);
     }
 
     /**
@@ -37,7 +37,7 @@ export class Http {
      * @param params 
      */
     static delete(url: string, params?: any) {
-        return this.fetch(url, HttpMethods.delete, params || null)
+        return this.fetch(url, HttpMethods.delete, params || null);
     }
 
     /**
@@ -54,7 +54,7 @@ export class Http {
 
         // 处理get 请求
         if (method === HttpMethods.get) {
-            data && (apiUrl += this.formateQuery(data))
+            data && (apiUrl += this.formateQuery(data));
             body = null;
         }
 

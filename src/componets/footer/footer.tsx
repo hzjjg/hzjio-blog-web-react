@@ -9,7 +9,7 @@ class Footer extends React.Component{
                     <a href="https://github.com/hzjjg/hzjio-blog-web-react" className="footer-link" >github</a>
                 </div>
             </div>
-        )
+        );
     }
 }
 

@@ -11,7 +11,7 @@ export interface ArticleEntity {
     
     content: string;
     
-    status: ArticleStatus
+    status: ArticleStatus;
     
     /** 投票 */
     votes:number;

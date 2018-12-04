@@ -15,4 +15,4 @@ export const SimpleMdeConfig:SimpleMde.Options = {
     tabSize: 4,
     spellChecker:false,
 	toolbarTips: false,
-}
+};

@@ -10,7 +10,7 @@ class About extends React.Component {
                 about
                 <Footer/>
             </div>
-        )
+        );
     }
 }
 

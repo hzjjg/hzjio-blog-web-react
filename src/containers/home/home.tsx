@@ -1,10 +1,12 @@
 import * as React from 'react';
 import './home.scss';
-import Header from 'src/componets/header/header'
+import Header from 'src/componets/header/header';
 import Footer from 'src/componets/footer/footer';
 import { ArticleEntity } from 'src/models/article.entity';
 import { HomeArticleItem } from './article_item/article_item';
 import { ArticleApi } from 'src/apis/article.api';
+import articleStore from 'src/store/article/article.store';
+import * as ArticleActions from "src/store/article/article.action";
 
 class Home extends React.Component<any, HomeState> {
 
@@ -12,7 +14,7 @@ class Home extends React.Component<any, HomeState> {
     super(props);
     this.state = {
       recentArticles: []
-    }
+    };
   }
 
   public render() {
@@ -45,6 +47,19 @@ class Home extends React.Component<any, HomeState> {
 
   async componentDidMount() {
     this.showRecentArticle();
+    articleStore.dispatch(ArticleActions.loadList());
+
+    // TODO 
+    console.log(articleStore.getState());
+
+    articleStore.subscribe(() => {
+      console.log('hahah');
+    });
+
+    setTimeout(() => {
+      articleStore.dispatch(ArticleActions.loadList());
+    }, 2000);
+
   }
 
   showRecentArticle() {
@@ -52,18 +67,18 @@ class Home extends React.Component<any, HomeState> {
     ArticleApi.getList().then(articles => {
       this.setState({
         recentArticles: articles
-      })
+      });
       console.log(this.state.recentArticles);
 
     }).catch(error => {
       console.log(error);
-    })
+    });
   }
 
 }
 
 interface HomeState {
-  recentArticles: ArticleEntity[]
+  recentArticles: ArticleEntity[];
 }
 
-export default Home
+export default Home;

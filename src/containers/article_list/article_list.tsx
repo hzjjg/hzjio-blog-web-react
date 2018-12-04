@@ -10,7 +10,7 @@ class ArticleList extends React.Component {
                 article list
                 <Footer/>
             </div>
-        )
+        );
     }
 }
 

@@ -14,6 +14,7 @@
   "rules": {
     "eofline": false,
     "indent": false,
+    "semicolon": true,
     "member-access": [
       false
     ],
@@ -41,6 +42,7 @@
     "object-literal-sort-keys": false,
     "no-unused-expression": false,
     "max-classes-per-file": false,
+    "interface-over-type-literal":false,
     "variable-name": [
       false
     ],

@@ -20,7 +20,7 @@ export class Editor extends React.Component {
                     <textarea className="editor-editor" ref={this.editorRef} />
                 </div>
             </div>
-        )
+        );
     }
 
     componentDidMount() {

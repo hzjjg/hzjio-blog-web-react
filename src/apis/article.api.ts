@@ -3,7 +3,7 @@ import { PageQuery } from "src/const/types";
 import { ArticleEntity } from "src/models/article.entity";
 import { Http } from "src/common/http";
 
-const ApiUrl = `${ApiDomain}/article`
+const ApiUrl = `${ApiDomain}/article`;
 
 /**
  * 文章api
@@ -31,6 +31,6 @@ export class ArticleApi {
     }
 
     static remove(id: string) {
-        return Http.delete(`${ApiUrl}/${id}`)
+        return Http.delete(`${ApiUrl}/${id}`);
     }
 }

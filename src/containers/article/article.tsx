@@ -10,7 +10,7 @@ class Article extends React.Component {
                 article
                 <Footer />
             </div>
-        )
+        );
     }
 }
 
