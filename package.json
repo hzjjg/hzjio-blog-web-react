@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/reselect": "^2.2.0",
     "autoprefixer": "7.1.6",
     "babel-jest": "^22.1.0",
     "babel-loader": "^7.1.2",
@@ -55,6 +54,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "@types/reselect": "^2.2.0",
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.7",

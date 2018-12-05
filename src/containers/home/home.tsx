@@ -5,12 +5,13 @@ import Footer from 'src/componets/footer/footer';
 import { ArticleEntity } from 'src/models/article.entity';
 import { HomeArticleItem } from './article_item/article_item';
 import { ArticleApi } from 'src/apis/article.api';
-import store from 'src/store';
-import { articleActions } from 'src/store/article';
+import store, { RootState } from 'src/store';
+import { articleActions, articleSelector } from 'src/store/article';
+import { connect } from 'react-redux';
 
-class Home extends React.Component<any, HomeState> {
+class Home extends React.Component<HomeProps, HomeState> {
 
-  constructor(props: any) {
+  constructor(props: HomeProps) {
     super(props);
     this.state = {
       recentArticles: []
@@ -81,4 +82,19 @@ interface HomeState {
   recentArticles: ArticleEntity[];
 }
 
-export default Home;
+interface HomeProps {
+  recentArticles: ArticleEntity[];
+  getRecentArticles(): any;
+}
+
+const mapStateToProps = (state: RootState) => {
+  return {
+    recentArticles: articleSelector.getArticleList(state.article)
+  };
+};
+
+const mapDispatchToProps = {
+  getRecentArticles: () => articleActions.loadList()
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
