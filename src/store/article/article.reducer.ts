@@ -1,6 +1,6 @@
 import { ArticleEntity } from "src/models/article.entity";
 import { ActionType, getType } from "typesafe-actions";
-import actions from "./article.action";
+import actions from "./article.actions";
 import { combineReducers } from "redux";
 
 export type ArticleState = {

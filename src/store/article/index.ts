@@ -1,10 +1,10 @@
-import { createStore } from "redux";
-import articleReducer from "./article.reducer";
+import articleReducer, { ArticleAction, ArticleState } from "./article.reducer";
+import articleActions from "./article.actions";
 
-function configStore(initState?: object) {
-    return createStore(articleReducer,initState!,);
-}
-
-const articleStore = configStore();
-
-export default articleStore;
+export {
+    articleActions,
+    articleReducer,
+    
+    ArticleAction,
+    ArticleState
+};
