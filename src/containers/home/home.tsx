@@ -5,8 +5,8 @@ import Footer from 'src/componets/footer/footer';
 import { ArticleEntity } from 'src/models/article.entity';
 import { HomeArticleItem } from './article_item/article_item';
 import { ArticleApi } from 'src/apis/article.api';
-import articleStore from 'src/store/article/article.store';
-import * as ArticleActions from "src/store/article/article.action";
+import articleStore from 'src/store/article';
+import articleActions from "src/store/article/article.action";
 
 class Home extends React.Component<any, HomeState> {
 
@@ -47,7 +47,7 @@ class Home extends React.Component<any, HomeState> {
 
   async componentDidMount() {
     this.showRecentArticle();
-    articleStore.dispatch(ArticleActions.loadList());
+    articleStore.dispatch(articleActions.loadList());
 
     // TODO 
     console.log(articleStore.getState());
@@ -57,7 +57,7 @@ class Home extends React.Component<any, HomeState> {
     });
 
     setTimeout(() => {
-      articleStore.dispatch(ArticleActions.loadList());
+      articleStore.dispatch(articleActions.loadList());
     }, 2000);
 
   }

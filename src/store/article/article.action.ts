@@ -5,14 +5,14 @@ enum Actions {
     findOne = 'FIND_ONE',
     // create = 'CREATE',
     // update = 'UPDATE',
-    // remove = 'REMOVE'
+    // 2remove = 'REMOVE'
 }
 
 
 /**
  * 加载文章列表
  */
-export const loadList = createAction(Actions.loadList, resolve => {
+const loadList = createAction(Actions.loadList, resolve => {
     return (page: number = 1, pageSize: number = 10) => resolve({ page, pageSize });
 });
 
@@ -20,6 +20,12 @@ export const loadList = createAction(Actions.loadList, resolve => {
  * 获取文章
  * @param id 
  */
-export const findOne = createAction(Actions.findOne, resolve => {
+const findOne = createAction(Actions.findOne, resolve => {
     return (page: number = 1, pageSize: number = 10) => resolve({ page, pageSize });
 });
+
+
+export default {
+    loadList,
+    findOne
+};
