@@ -65,7 +65,8 @@ const mapStateToProps = (state: RootState) => {
 
 /** 绑定 dispatch 到props */
 const mapDispatchToProps = {
-  getRecentArticles: () => articleActions.loadList()
+  getRecentArticles: () => articleActions.fetchList.request({})
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
