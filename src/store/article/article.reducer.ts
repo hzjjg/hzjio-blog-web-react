@@ -17,7 +17,8 @@ const articles = (state: ArticleEntity[] = [], action: ArticleAction) => {
     switch (action.type) {
         case getType(actions.loadList):
             return [];
-
+        case getType(actions.loadListSucceed):
+            return action.payload.articles;
         default:
             return state;
     }

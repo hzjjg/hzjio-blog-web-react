@@ -14,7 +14,7 @@ export class ArticleApi {
      * 获取文章列表 
      * @param query 查询参数
      */
-    static getList(query?: PageQuery): Promise<ArticleEntity[]> {
+    static getList(query?: ArticlePageQuery): Promise<ArticleEntity[]> {
         return Http.get(ApiUrl, query);
     }
 
@@ -33,4 +33,9 @@ export class ArticleApi {
     static remove(id: string) {
         return Http.delete(`${ApiUrl}/${id}`);
     }
+}
+
+export interface ArticlePageQuery extends PageQuery {
+    author?: string;
+    date?: string;
 }

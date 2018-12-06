@@ -4,12 +4,11 @@ import Header from 'src/componets/header/header';
 import Footer from 'src/componets/footer/footer';
 import { ArticleEntity } from 'src/models/article.entity';
 import { HomeArticleItem } from './article_item/article_item';
-import { ArticleApi } from 'src/apis/article.api';
-import store, { RootState } from 'src/store';
+import { RootState } from 'src/store';
 import { articleActions, articleSelector } from 'src/store/article';
 import { connect } from 'react-redux';
 
-class Home extends React.Component<HomeProps, HomeState> {
+class Home extends React.Component<HomeProps> {
 
   constructor(props: HomeProps) {
     super(props);
@@ -27,7 +26,7 @@ class Home extends React.Component<HomeProps, HomeState> {
         <div className="home-content">
           <div className="home-articles">
             {
-              this.state.recentArticles.map((article, index) =>
+              this.props.recentArticles.map((article, index) =>
                 <HomeArticleItem
                   key={index}
                   title={article.title}
@@ -47,39 +46,9 @@ class Home extends React.Component<HomeProps, HomeState> {
   }
 
   async componentDidMount() {
-    this.showRecentArticle();
-    store.dispatch(articleActions.loadList());
-
-    // // TODO 
-    console.log(store.getState());
-
-    store.subscribe(() => {
-      console.log('hahah');
-    });
-
-    setTimeout(() => {
-      store.dispatch(articleActions.loadList());
-    }, 2000);
-
+    this.props.getRecentArticles();
   }
 
-  showRecentArticle() {
-    // TODO 从store 中取数据
-    ArticleApi.getList().then(articles => {
-      this.setState({
-        recentArticles: articles
-      });
-      console.log(this.state.recentArticles);
-
-    }).catch(error => {
-      console.log(error);
-    });
-  }
-
-}
-
-interface HomeState {
-  recentArticles: ArticleEntity[];
 }
 
 interface HomeProps {
@@ -87,12 +56,14 @@ interface HomeProps {
   getRecentArticles(): any;
 }
 
+/** 绑定 state 到 props */
 const mapStateToProps = (state: RootState) => {
   return {
     recentArticles: articleSelector.getArticleList(state.article)
   };
 };
 
+/** 绑定 dispatch 到props */
 const mapDispatchToProps = {
   getRecentArticles: () => articleActions.loadList()
 };
