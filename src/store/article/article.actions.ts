@@ -1,10 +1,10 @@
-import { createAsyncAction, action } from "typesafe-actions";
+import { createAsyncAction } from "typesafe-actions";
 import { ArticleEntity } from "src/models/article.entity";
 import { ArticlePageQuery } from "src/apis/article.api";
 
 enum Actions {
 
-    fetchdOne = 'ARTICLE_FETCH_ONE',
+    fetchOne = 'ARTICLE_FETCH_ONE',
     fetchOneSucceed = 'ARTICLE_FETCH_ONE_SUCCEED',
     fetchOneFailed = 'ARTICLE_FETCH_ONE_FAILED',
 
@@ -35,7 +35,7 @@ export const fetchList = createAsyncAction(
 
 /** 获取文章 */
 export const fetchOne = createAsyncAction(
-    Actions.fetchdOne,
+    Actions.fetchOne,
     Actions.fetchOneSucceed,
     Actions.fetchOneFailed,
 )<{ id: string }, ArticleEntity, Error>();
