@@ -10,13 +10,6 @@ import { connect } from 'react-redux';
 
 class Home extends React.Component<HomeProps> {
 
-  constructor(props: HomeProps) {
-    super(props);
-    this.state = {
-      recentArticles: []
-    };
-  }
-
   public render() {
     return (
       <div className="home">
@@ -45,7 +38,7 @@ class Home extends React.Component<HomeProps> {
     );
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     this.props.getRecentArticles();
   }
 
@@ -53,7 +46,7 @@ class Home extends React.Component<HomeProps> {
 
 interface HomeProps {
   recentArticles: ArticleEntity[];
-  getRecentArticles(): any;
+  getRecentArticles(): void;
 }
 
 /** 绑定 state 到 props */

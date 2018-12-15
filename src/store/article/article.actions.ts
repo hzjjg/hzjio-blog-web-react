@@ -33,6 +33,7 @@ export const fetchList = createAsyncAction(
     Actions.fetchOneFailed
 )<ArticlePageQuery, ArticleEntity[], Error>();
 
+
 /** 获取文章 */
 export const fetchOne = createAsyncAction(
     Actions.fetchOne,

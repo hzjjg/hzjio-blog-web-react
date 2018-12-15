@@ -26,7 +26,6 @@ function* fetchArticles(action: ActionType<typeof articleActions.fetchList.reque
     }
 }
 
-
 /**
  * 监听 articleActions.loadList action，触发后会执行上面定义的 fetchArticles 函数
  */
@@ -34,9 +33,27 @@ function* watchFetchArticles() {
     yield takeLatest(getType(articleActions.fetchList.request), fetchArticles);
 }
 
+function* fetchCurrentArticle(action: ActionType<typeof articleActions.fetchOne.request>) {
+    try {
+        
+        const article = yield call(ArticleApi.findOne, action.payload.id);
+        
+        yield put(articleActions.fetchOne.success(article));
+
+    } catch (error) {
+        yield put(articleActions.fetchOne.failure(error));
+    }
+}
+
+function* watchFetchCurrentArticle() {
+    yield takeLatest(getType(articleActions.fetchOne.request), fetchCurrentArticle);
+}
+
+
 // 导出方法，用于在rootSaga 导入
 export default function* articleSagas() {
     yield all([
-        watchFetchArticles()
+        watchFetchArticles(),
+        watchFetchCurrentArticle()
     ]);
-}
+}   

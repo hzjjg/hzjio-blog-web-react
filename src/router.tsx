@@ -19,7 +19,7 @@ const AppRouter = () => {
                     <Route exact={true} path="/index" component={Home} />
 
                     <Route exact={true} path="/articles" component={ArticleList} />
-                    <Route exact={true} path="/articles/:id" component={Article} />
+                    <Route exact={true} path="/article/:id" component={Article} />
 
                     <Route exact={true} path="/editor/:id" component={Editor} />
 

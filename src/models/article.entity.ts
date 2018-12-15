@@ -3,7 +3,7 @@ export interface ArticleEntity {
     
     id: string;
 
-    author: number;
+    author: string;
     
     title: string;
     
