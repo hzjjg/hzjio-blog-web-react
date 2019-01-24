@@ -4,17 +4,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm run build'             
-                echo 'Building' 
+                dir('docker'){
+                    sh 'docker-compose build'             
+                }
+                echo '构建容器中……' 
             }
         }
         stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
             steps {
-                sh 'rm -rf /www/hzjioBlog/'
-                sh 'mv dist/ /www/hzjioBlog/'
-                echo './deploy staging'                
-                echo './run-smoke-tests'
+                dir('docker'){
+                    sh 'docker-compose up -d'
+                }
+                echo '启动容器中……'                
             }
         }
     }

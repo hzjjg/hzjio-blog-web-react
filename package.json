@@ -61,8 +61,6 @@
     "@types/react-dom": "^16.0.10",
     "@types/react-redux": "^6.0.10",
     "@types/react-router-dom": "^4.3.1",
-    "@types/redux-saga": "^0.10.5",
-    "@types/reselect": "^2.2.0",
     "@types/simplemde": "^1.11.7",
     "node-sass": "^4.10.0",
     "redux-devtools": "^3.4.2",
