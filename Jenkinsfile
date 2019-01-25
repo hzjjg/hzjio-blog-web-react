@@ -2,25 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build and Deploy') {
             steps {
                 dir('docker'){
-                    sh 'docker-compose build'             
+                    sh 'docker-compose up -d --build'             
                 }
-                echo '构建容器中……' 
-            }
-        }
-        stage('Deploy') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
-            steps {
-                dir('docker'){
-                    sh 'docker-compose up -d'
-                }
-                echo '启动容器中……'                
+                echo '启动容器中……' 
             }
         }
     }
