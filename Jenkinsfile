@@ -11,17 +11,17 @@ pipeline {
             }
         }
 
-        stage('Clean') {
-            when {
-              expression {
-                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
-              }
-            }
-            steps {
-                sh 'docker system prune -f --volumes'
-                echo '打扫垃圾……'                
-            }
-        }
+        // stage('Clean') {
+        //     when {
+        //       expression {
+        //         currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+        //       }
+        //     }
+        //     steps {
+        //         sh 'docker system prune -f --volumes'
+        //         echo '打扫垃圾……'                
+        //     }
+        // }
     }
 
     post {        
