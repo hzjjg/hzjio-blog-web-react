@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 dir('docker'){
-                    sh 'docker-compose up -d --build -V'             
+                    sh 'docker-compose up -d --build'             
                 }
                 echo '启动容器中……' 
             }
