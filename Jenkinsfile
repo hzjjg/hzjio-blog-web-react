@@ -5,9 +5,21 @@ pipeline {
         stage('Build and Deploy') {
             steps {
                 dir('docker'){
-                    sh 'docker-compose up -d --build'             
+                    sh 'docker-compose up -d --build -V'             
                 }
                 echo '启动容器中……' 
+            }
+        }
+
+        stage('Clean') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
+            steps {
+                sh 'docker system prune -f --volumes'
+                echo '打扫垃圾……'                
             }
         }
     }

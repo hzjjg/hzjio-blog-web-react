@@ -2,8 +2,6 @@ FROM node
 
 RUN mkdir -p /www/web
 
-WORKDIR /www/web
-
 COPY . /www/web
 
 WORKDIR /www/web

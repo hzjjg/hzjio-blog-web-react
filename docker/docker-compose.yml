@@ -11,7 +11,7 @@ services:
     ports:
       - 8001:80
     volumes:
-      - webDir:/www/web
+      - webDist:/webDist
     
 
   web:
@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     container_name: blog_web
     volumes:
-      - webDir:/www/web
+      - webDist:/www/web/build
 
 volumes: 
-  webDir:
+  webDist:
