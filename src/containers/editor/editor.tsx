@@ -4,7 +4,7 @@ import './editor.scss';
 
 import { SimpleMdeConfig } from "./simple_mde.config";
 
-export class Editor extends React.Component {
+class Editor extends React.Component {
 
     editorRef: React.RefObject<HTMLTextAreaElement>;
 
@@ -34,3 +34,5 @@ export class Editor extends React.Component {
         
     }
 }
+
+export default Editor;

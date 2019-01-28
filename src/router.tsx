@@ -4,14 +4,15 @@ import Home from './containers/home/home';
 import ArticleList from './containers/article_list/article_list';
 import Article from './containers/article/article';
 import About from './containers/about/about';
-import { Editor } from './containers/editor/editor';
 import { Provider } from 'react-redux';
 import store from './store';
+import asyncComponent from './utils/async_component';
+
+const Editor = asyncComponent(()=> import('./containers/editor/editor'));
 
 const AppRouter = () => {
     return (
         <Provider store={store}>
-
             <Router>
                 <Switch>
                     <Route exact={true} path="/" component={Home} />
@@ -25,7 +26,6 @@ const AppRouter = () => {
 
                     <Route exact={true} path="/about" component={About} />
                 </Switch>
-
             </Router>
         </Provider>
     );
