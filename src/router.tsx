@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import asyncComponent from './utils/async_component';
 
-const Editor = asyncComponent(()=> import('./containers/editor/editor'));
+const AsyncEditor = asyncComponent(()=> import('./containers/editor/editor'));
 
 const AppRouter = () => {
     return (
@@ -22,7 +22,7 @@ const AppRouter = () => {
                     <Route exact={true} path="/articles" component={ArticleList} />
                     <Route exact={true} path="/article/:id" component={Article} />
 
-                    <Route exact={true} path="/editor/:id" component={Editor} />
+                    <Route exact={true} path="/editor/:id" component={AsyncEditor} />
 
                     <Route exact={true} path="/about" component={About} />
                 </Switch>
