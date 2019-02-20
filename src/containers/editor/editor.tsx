@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as SimpleMde from 'simplemde';
 import './editor.scss';
-
 import { SimpleMdeConfig } from "./simple_mde.config";
 
 class Editor extends React.Component {
@@ -31,7 +30,7 @@ class Editor extends React.Component {
             ...SimpleMdeConfig
         });
         console.log(simpleMde.value());
-        
+
     }
 }
 
