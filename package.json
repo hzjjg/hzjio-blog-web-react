@@ -55,7 +55,7 @@
     "tslint-react": "^3.2.0",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
-    "react-dev-utils": "^5.0.2",
+    "react-dev-utils": "^11.0.4",
     "resolve": "1.6.0"
   },
   "scripts": {
